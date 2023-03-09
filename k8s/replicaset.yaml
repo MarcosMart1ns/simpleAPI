@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: simpleapi
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: simpleapi
+  template:
+    metadata:
+      name: simpleapi
+      labels:
+        app: simpleapi
+    spec:
+      containers:
+        - name: simpleapi
+          image: xmartinezzz/simpleapi
+          ports:
+            - containerPort: 3000
